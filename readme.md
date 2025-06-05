@@ -184,15 +184,17 @@ chmod u+x install-grafana.sh
 ## Step 4: Add Prometheus Data Source
 _Your Server setup is done, Now Add data source to connect dashboard._
 
-1. In the left sidebar, click "3 lines 
+1. Go to `Grafana` Server
 
-2. Click on **Connections** → **Data Sources**
+2. In the left sidebar, click `3 lines` 
 
-3. Click on **+ Add new data source**
+3. Click on **Connections** → **Data Sources**
 
-4. Search Data Source → `Prometheus` → Click on it
+4. Click on **+ Add new data source**
 
-5. Open it and Connect with Grafana
+5. Search Data Source → `Prometheus` → Click on it
+
+6. Open it and Connect with Grafana
 
    1. Enter name → Prometheus
    2. In **Connnection** → Enter prometheus sever URL →
@@ -216,6 +218,7 @@ _Your Server setup is done, Now Add data source to connect dashboard._
 ![Sample_Dashboard](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Dashboard%20sample.png)
 
 #### ✅ Prometheus and Grafana are successfully installed, configured, and ready for real-time monitoring!
+---
 
 ## Step 5: Configure Monitored EC2 Instance as Node Exporter
 _In this step you are going to sets up Node Exporter on the monitored EC2 instance to expose system metrics for Prometheus to scrape and Grafana to visualize._
@@ -321,10 +324,10 @@ _This step guides you to import a prebuilt dashboard in Grafana to visualize rea
 
 7. Open it 
 
-8. Now you can Monitor your `Targeted EC2 Instance`
-
 ![Before_stress](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Node%20dashboard%201st.png)
 
+
+8. Now you can Monitor your `Targeted EC2 Instance`
 ---
 
 ## Step 8: Simulate Load for Real-Time Monitoring 
