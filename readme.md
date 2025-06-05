@@ -115,7 +115,7 @@ ssh -i "your-key.pem" ec2-user@<Prometheus_EC2_PUBLIC_IP>
 ```
 2. Clone GitHub repository for Prometheus installation script:
 ```bash  
- git clone https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana
+ git clone https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana.git
  ``` 
  3. Run Script:
  ```bash
@@ -148,7 +148,7 @@ ssh -i "your-key.pem" ec2-user@<GRAFANA_EC2_PUBLIC_IP>
 
 2. Clone GitHub repository for Grafana installation script:
 ```bash  
- git clone https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana
+ git clone https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana.git
  ``` 
 
  3. Run Script:
