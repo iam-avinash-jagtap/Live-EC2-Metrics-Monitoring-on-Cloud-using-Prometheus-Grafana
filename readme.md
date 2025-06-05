@@ -101,6 +101,8 @@ Here are the **Pre-requisites** for your **Live EC2 Metrics Monitoring on Cloud 
 
 [Linux Server Setup for Project,](https://github.com/iam-avinash-jagtap/Linux-Server-Deployment-on-AWS-E2)
 
+![Instances](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Instances.png)
+
 ---
 
 ## Step 2: Install & Configure Prometheus
@@ -131,6 +133,9 @@ chmod u+x install-prometheus.sh
     - Copy Public IP of Prometheus EC2 Instance
     - Paste in New Tab with Port Number
       - http://<Prometheus-EC2-public_IP>:9090
+
+![Prometheus_Server](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Prometheus%20Server.png)
+
 ---
 ## Step 3: Install & Configure Grafana
 _Data source is ready now install and configure the dashboard server — Grafana._
@@ -172,6 +177,9 @@ chmod u+x install-grafana.sh
       - admin
     - Create New Password:
       - Enter New Password 
+
+![Grafana_Server](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Grafana%20Server.png)
+
 ---
 ## Step 4: Add Prometheus Data Source
 _Your Server setup is done, Now Add data source to connect dashboard._
@@ -188,13 +196,24 @@ _Your Server setup is done, Now Add data source to connect dashboard._
 
    1. Enter name → Prometheus
    2. In **Connnection** → Enter prometheus sever URL →
+
+![Prometheus_URL](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Enter%20Prometheus%20details.png)
+
    3. Scroll down Click  → **Save & Test**
    - If setup is successful, you’ll see a green message:
         → _Data source is working_
    4. Open Data Source → `Prometheus`
+
+![Add_data_Source](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Add%20data%20source.png)
+
    5. Choose `Dashboard` → **Prometheus 2.0 Stats**
+
+ ![Prometheus_Dashboard_Selection](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Prometheus%20dashboard%20selection.png)
+
    6. Click → **Home**
    7. Open dashboard → **Prometheus 2.0 Stats**
+
+![Sample_Dashboard](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Dashboard%20sample.png)
 
 #### ✅ Prometheus and Grafana are successfully installed, configured, and ready for real-time monitoring!
 
@@ -220,7 +239,10 @@ cd node_exporter-1.8.0.linux-amd64
 ```
 
 4. Confirm Exporter is Working
-    - http://<Monitored-EC2-Public-IP>:9100/metrics
+    - http://< Monitored-EC2-Public-IP >:9100/metrics
+
+![Node_Exporter](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Node%20Executor.png)
+
 ---
 
 ## Step 6: Add Node Exporter to Prometheus Config
@@ -259,9 +281,11 @@ scrape_configs:
   - job_name: "ec2-node"
     static_configs:
       - targets: ["<Monitored-EC2-Private-IP>:9100"] 
-      # Replace <Monitored-EC2-Private-IP> with Your Node Exporter's Private IP
+      # Replace <Monitored-EC2-Private-IP> with Your Node Exporter's Private IP     
 
 ```
+![Edit_prometheus.yml_FIle](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Edit%20Prometheus%20file.png)
+
 3. Save the file and exit the editor
 
 4. Restart Prometheus
@@ -283,15 +307,24 @@ _This step guides you to import a prebuilt dashboard in Grafana to visualize rea
 
 3. Click → Import a dashboard
 
+![New_DashBoard_Creation](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Create%20Dashboard%20for%20node.png)
+
 4. In the Import via Grafana.com field, enter dashboard ID → 1680
+
+![Node_Exporter_Details](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Import%20Dashboard.png)
 
 5. Click `Load`
 
 6. Go To → Dashboards you will see → `Node Exporter Full` tags `linux`
 
+![Dashboard_list](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Dashboard%20-%20Node.png)
+
 7. Open it 
 
 8. Now you can Monitor your `Targeted EC2 Instance`
+
+![Before_stress](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Node%20dashboard%201st.png)
+
 ---
 
 ## Step 8: Simulate Load for Real-Time Monitoring 
@@ -308,7 +341,11 @@ stress --cpu 2 --timeout 300
 
 ```
 
+![Stress](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Stress%20command.png)
+
 3. Monitor live CPU usage changes on the Grafana dashboard.
+
+![After_Stress](https://github.com/iam-avinash-jagtap/Live-EC2-Metrics-Monitoring-on-Cloud-using-Prometheus-Grafana/blob/master/Images/Node%20Dashboard%20stress.png)
 
 ##### Your complete monitoring stack with Prometheus and Grafana is fully operational, enabling you to actively track and visualize real-time performance metrics of your targeted EC2 instance with precision and efficiency.
 
